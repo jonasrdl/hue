@@ -66,5 +66,5 @@ func main() {
 | **Schedules**          | `GetSchedules`           | Fetches all schedules defined on the bridge.                                          | ❌          |
 |                        | `CreateSchedule`         | Creates a new schedule to automate actions (e.g., turn on lights at a specific time). | ❌          |
 |                        | `DeleteSchedule`         | Deletes a schedule by its ID.                                                         | ❌          |
-| **Bridge Information** | `GetConfig`              | Fetches the bridge's configuration, including software version and connected devices. | ❌          |
+| **Bridge Information** | `GetConfig`              | Fetches the bridge's configuration, including software version and connected devices. | ✔️         |
 |                        | `GetCapabilities`        | Fetches the bridge's capabilities (e.g., maximum number of lights or groups).         | ❌          |
