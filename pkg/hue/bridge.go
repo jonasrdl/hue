@@ -137,7 +137,8 @@ type BridgeConfig struct {
 	} `json:"whitelist"`
 }
 
-// GetConfig fetches the bridge's configuration, including software version and connected devices.
+// GetConfig fetches the bridge's configuration including network settings,
+// software version, API details, whitelist, portal state, and backup information.
 func (b *Bridge) GetConfig() (*BridgeConfig, error) {
 	data, err := b.request("GET", "config", nil)
 	if err != nil {
