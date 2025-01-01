@@ -1,4 +1,4 @@
-module hue
+module github.com/jonasrdl/hue
 
 go 1.23
 
