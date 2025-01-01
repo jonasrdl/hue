@@ -145,12 +145,88 @@ func (b *Bridge) GetConfig() (*BridgeConfig, error) {
 		return nil, fmt.Errorf("failed to get bridge config: %w", err)
 	}
 
-	fmt.Println(string(data))
-
 	var config BridgeConfig
 	if err := json.Unmarshal(data, &config); err != nil {
 		return nil, fmt.Errorf("failed to unmarshal bridge config: %w", err)
 	}
 
 	return &config, nil
+}
+
+type BridgeCapabilities struct {
+	Lights struct {
+		Available int `json:"available"`
+		Total     int `json:"total"`
+	} `json:"lights"`
+	Sensors struct {
+		Available int `json:"available"`
+		Total     int `json:"total"`
+		Clip      struct {
+			Available int `json:"available"`
+			Total     int `json:"total"`
+		} `json:"clip"`
+		ZLL struct {
+			Available int `json:"available"`
+			Total     int `json:"total"`
+		}
+		ZGP struct {
+			Available int `json:"available"`
+			Total     int `json:"total"`
+		}
+	} `json:"sensors"`
+	Groups struct {
+		Available int `json:"available"`
+		Total     int `json:"total"`
+	}
+	Scenes struct {
+		Available   int `json:"available"`
+		Total       int `json:"total"`
+		LightStates struct {
+			Available int `json:"available"`
+			Total     int `json:"total"`
+		}
+	} `json:"scenes"`
+	Schedules struct {
+		Available int `json:"available"`
+		Total     int `json:"total"`
+	} `json:"schedules"`
+	Rules struct {
+		Available  int `json:"available"`
+		Total      int `json:"total"`
+		Conditions struct {
+			Available int `json:"available"`
+			Total     int `json:"total"`
+		} `json:"conditions"`
+		Actions struct {
+			Available int `json:"available"`
+			Total     int `json:"total"`
+		} `json:"actions"`
+	} `json:"rules"`
+	ResourceLinks struct {
+		Available int `json:"available"`
+		Total     int `json:"total"`
+	} `json:"resourcelinks"`
+	Streaming struct {
+		Available int `json:"available"`
+		Total     int `json:"total"`
+		Channels  int `json:"channels"`
+	} `json:"streaming"`
+	Timezones struct {
+		Values []string `json:"values"`
+	} `json:"timezones"`
+}
+
+// GetCapabilities fetches the bridge's capabilities (e.g., maximum number of lights or groups).
+func (b *Bridge) GetCapabilities() (*BridgeCapabilities, error) {
+	data, err := b.request("GET", "capabilities", nil)
+	if err != nil {
+		return nil, fmt.Errorf("failed to get bridge capabilities: %w", err)
+	}
+
+	var capabilities BridgeCapabilities
+	if err := json.Unmarshal(data, &capabilities); err != nil {
+		return nil, fmt.Errorf("failed to unmarshal bridge capabilities: %w", err)
+	}
+
+	return &capabilities, nil
 }
