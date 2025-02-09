@@ -56,9 +56,9 @@ func main() {
 |                        | `SetBrightness`          | Adjusts the brightness of a specific light.                                           | ✔️         |
 |                        | `SetColor`               | Sets the color of a specific light (e.g., hue, saturation).                           | ✔️         |
 | **Authentication**     | `AuthenticateWithBridge` | Authenticates with the Hue bridge and returns an API key                              | ✔️         |
-| **Groups**             | `GetGroups`              | Fetches all groups of lights defined on the bridge.                                   | ❌          |
-|                        | `GetGroupByID`           | Fetches details of a specific group by its ID.                                        | ❌          |
-|                        | `SetGroupState`          | Sets the state of a group of lights (e.g., turn on, adjust brightness).               | ❌          |
+| **Groups**             | `GetGroups`              | Fetches all groups of lights defined on the bridge.                                   | ✔️          |
+|                        | `GetGroupByID`           | Fetches details of a specific group by its ID.                                        | ✔️          |
+|                        | `SetGroupState`          | Sets the state of a group of lights (e.g., turn on, adjust brightness).               | ✔️          |
 | **Scenes**             | `GetScenes`              | Fetches all scenes available on the bridge.                                           | ❌          |
 |                        | `ActivateScene`          | Activates a specific scene by ID.                                                     | ❌          |
 | **Sensors**            | `GetSensors`             | Fetches all sensors connected to the bridge.                                          | ❌          |
