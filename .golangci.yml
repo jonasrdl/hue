@@ -1,0 +1,38 @@
+run:
+  timeout: 5m
+
+linters:
+  disable-all: true
+  enable:
+    - bodyclose
+    - copyloopvar
+    - dupl
+    - errcheck
+    - fatcontext
+    - gci
+    - goconst
+    - gocritic
+    - gocyclo
+    - gofumpt
+    - goimports
+    - gosec
+    - gosimple
+    - govet
+    - importas
+    - ineffassign
+    - intrange
+    - lll
+    - loggercheck
+    - misspell
+    - nakedret
+    - nilerr
+    - nosprintfhostport
+    - revive
+    - staticcheck
+    - stylecheck
+    - typecheck
+    - unconvert
+    - unparam
+    - unused
+    - whitespace
+
