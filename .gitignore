@@ -1,3 +1,4 @@
 examples
 .env
 .idea
+main.go
