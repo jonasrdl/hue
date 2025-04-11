@@ -1,22 +1,16 @@
-run:
-  timeout: 5m
-
+version: "2"
 linters:
-  disable-all: true
+  default: none
   enable:
     - bodyclose
     - copyloopvar
     - dupl
     - errcheck
     - fatcontext
-    - gci
     - goconst
     - gocritic
     - gocyclo
-    - gofumpt
-    - goimports
     - gosec
-    - gosimple
     - govet
     - importas
     - ineffassign
@@ -29,10 +23,29 @@ linters:
     - nosprintfhostport
     - revive
     - staticcheck
-    - stylecheck
-    - typecheck
     - unconvert
     - unparam
     - unused
     - whitespace
-
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gci
+    - gofumpt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
